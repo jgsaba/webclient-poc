@@ -1,0 +1,17 @@
+spring:
+  profiles: primary
+server.port: 8111
+eureka.client.serviceUrl.defaultZone: http://localhost:8222/eureka/,http://localhost:8333/eureka/
+---
+
+spring:
+  profiles: secondary
+server.port: 8222
+eureka.client.serviceUrl.defaultZone: http://localhost:8111/eureka/,http://localhost:8333/eureka/
+---
+
+spring:
+  profiles: tertiary
+server.port: 8333
+eureka.client.serviceUrl.defaultZone: http://localhost:8111/eureka/,http://localhost:8222/eureka/
+---

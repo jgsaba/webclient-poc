@@ -55,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/../../refactor-feign-to-webclient/eureka-server-poc/sentence-producer/src/main/java/atlantico/poc/sentenceproducer/AController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="215">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -79,6 +79,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -98,6 +101,7 @@
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -111,49 +115,6 @@
               <item name="movie-event-api" type="b2602c69:ProjectViewProjectNode" />
               <item name="atlantico.poc" type="9c53a853:ProjectViewModuleGroupNode" />
             </path>
-            <path>
-              <item name="movie-event-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="atlantico.poc" type="9c53a853:ProjectViewModuleGroupNode" />
-              <item name="sentence-producer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-event-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="atlantico.poc" type="9c53a853:ProjectViewModuleGroupNode" />
-              <item name="sentence-producer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-event-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="atlantico.poc" type="9c53a853:ProjectViewModuleGroupNode" />
-              <item name="sentence-producer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-event-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="atlantico.poc" type="9c53a853:ProjectViewModuleGroupNode" />
-              <item name="sentence-producer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-event-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="atlantico.poc" type="9c53a853:ProjectViewModuleGroupNode" />
-              <item name="sentence-producer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sentenceproducer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie-event-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="atlantico.poc" type="9c53a853:ProjectViewModuleGroupNode" />
-              <item name="sentence-producer" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -162,7 +123,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../refactor-feign-to-webclient/eureka-server-poc/verb-producer/build.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../producer-consumer/content-producer" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -191,7 +152,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="1" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Designer" />
@@ -365,7 +325,7 @@
     <entry file="file://$PROJECT_DIR$/../../refactor-feign-to-webclient/eureka-server-poc/sentence-producer/src/main/java/atlantico/poc/sentenceproducer/AController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
