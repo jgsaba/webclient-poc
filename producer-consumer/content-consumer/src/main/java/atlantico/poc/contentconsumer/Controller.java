@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
-import java.util.Date;
+import java.net.URI;
 
 @RestController
 public class Controller {
@@ -20,6 +21,7 @@ public class Controller {
     @GetMapping("/single")
     public MirrorPayload getASingleOne(){
 
-        
+        URI uri = discoveryClient.getInstances("producer").get(0).getUri();
+        //Mono<MirrorPayload> mirrorPayloadMono = webClient.get().uri()
     }
 }
