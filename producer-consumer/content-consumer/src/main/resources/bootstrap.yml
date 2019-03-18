@@ -1,1 +1,1 @@
-application.name: consumer
+spring.application.name: consumer

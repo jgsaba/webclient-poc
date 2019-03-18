@@ -13,8 +13,7 @@ import java.util.List;
 public class Controller {
 
     @GetMapping("/single")
-    public @ResponseBody
-    Payload getJustOnePayload(){
+    public @ResponseBody Payload getJustOnePayload(){
 
         Payload payload = new Payload("My title", "My content", new Date());
         return payload;
