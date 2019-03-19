@@ -19,12 +19,12 @@ public class Controller {
         return payload;
     }
 
-    @GetMapping("/multiple")
+    @GetMapping("/multiples")
     public @ResponseBody List<Payload> getMultiplePayloads(){
 
-        Payload payload1 = new Payload("My title 1", "My content 2", new Date());
+        Payload payload1 = new Payload("My title 1", "My content 1", new Date());
         Payload payload2 = new Payload("My title 2", "My content 2", new Date());
-        Payload payload3 = new Payload("My title 3", "My content 2", new Date());
+        Payload payload3 = new Payload("My title 3", "My content 3", new Date());
 
         List<Payload> payloads = new ArrayList<>();
         payloads.addAll(Arrays.asList(payload1, payload2, payload3));
