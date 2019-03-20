@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
-public class MirrorPayload {
+public class Payload {
 
     @JsonProperty("title")
     private String title;
@@ -17,14 +17,14 @@ public class MirrorPayload {
 
     private String service;
 
-    public MirrorPayload(){}
+    public Payload(){}
 
-    public MirrorPayload(String title, String content) {
+    public Payload(String title, String content) {
         this.title = title;
         this.content = content;
     }
 
-    public MirrorPayload(String title, String content, Date created) {
+    public Payload(String title, String content, Date created) {
         this.title = title;
         this.content = content;
         this.created = created;
