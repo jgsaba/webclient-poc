@@ -1,5 +1,6 @@
 package atlantico.poc.contentproducer;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,22 +12,22 @@ import java.util.List;
 public class Controller {
 
     @GetMapping("/single")
-    public @ResponseBody Payload getJustOne( ){
-
+    public Payload getJustOne() {
         Payload payload = new Payload("My title", "My content", new Date());
         return payload;
     }
 
     @PostMapping("/single")
-    public @ResponseBody Payload postJustOne(@RequestBody Payload streamPayload){
+    public Payload postJustOne(@RequestBody Payload streamPayload) {
 
         Payload payload = new Payload("Your title is: " + streamPayload.getTitle(),
                 "Your content is: " + streamPayload.getContent(), new Date());
+        System.out.println("VAI MIZERA");
         return payload;
     }
 
     @GetMapping("/multiples")
-    public @ResponseBody List<Payload> getMultiples(){
+    public List<Payload> getMultiples() {
 
         Payload payload1 = new Payload("My title 1", "My content 1", new Date());
         Payload payload2 = new Payload("My title 2", "My content 2", new Date());
@@ -37,4 +38,5 @@ public class Controller {
 
         return payloads;
     }
+
 }

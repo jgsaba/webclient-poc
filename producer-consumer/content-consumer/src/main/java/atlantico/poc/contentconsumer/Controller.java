@@ -5,10 +5,10 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactivefeign.webclient.WebReactiveFeign;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -20,10 +20,12 @@ public class Controller {
 
     private WebClient webClient;
 
+    private ProducerClient producerClient;
+
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    public Controller(){
+    public Controller() {
         webClient = WebClient.builder()
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json")
                 .defaultHeader(HttpHeaders.USER_AGENT, "Spring 5 WebClient")
@@ -31,7 +33,7 @@ public class Controller {
     }
 
     @GetMapping("/send")
-    public Mono<Payload> sendAndReceive(){
+    public Mono<Payload> sendAndReceive() {
 
         Payload payload = new Payload();
 
@@ -39,52 +41,33 @@ public class Controller {
         payload.setContent("New content");
         payload.setCreated(new Date());
 
-        String resource = "/single";
         URI uri = discoveryClient.getInstances("producer").get(0).getUri();
 
-        Mono<Payload> result = webClient.post()
-                .uri(uri + resource)
-                .contentType(MediaType.APPLICATION_STREAM_JSON)
-                .syncBody(payload)
-                .retrieve()
-                .bodyToMono(Payload.class);
+        ProducerClient producerClient = WebReactiveFeign.<ProducerClient>builder().target(ProducerClient.class, uri.toString());
 
-        return result;
+        return producerClient.sendAndGetOneBack(payload);
     }
 
     @GetMapping("/single")
-    public @ResponseBody Mono<Payload> getASingleOne(){
-
-        String resource = "/single";
+    public Mono<Payload> getASingleOne() {
 
         URI uri = discoveryClient.getInstances("producer").get(0).getUri();
 
-        Mono<Payload> result =
+        ProducerClient producerClient = WebReactiveFeign.<ProducerClient>builder().target(ProducerClient.class, uri.toString());
 
-                webClient.get()
-                .uri(uri + resource)
-                .retrieve()
-                .bodyToMono(Payload.class);
-
-        return result;
+        return producerClient.getSingle();
 
     }
 
     @GetMapping("/multiples")
-    public @ResponseBody Flux<Payload> getMultiples(){
+    public Flux<Payload> getMultiples() {
 
-        String resource = "/multiples";
 
         URI uri = discoveryClient.getInstances("producer").get(0).getUri();
 
-        Flux<Payload> result =
+        ProducerClient producerClient = WebReactiveFeign.<ProducerClient>builder().target(ProducerClient.class, uri.toString());
 
-                webClient.get()
-                .uri(uri + resource)
-                .retrieve()
-                .bodyToFlux(Payload.class);
-
-        return result;
+        return producerClient.getMultiples();
 
     }
 }

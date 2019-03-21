@@ -23,6 +23,11 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
+
+	maven{
+		url "https://dl.bintray.com/kptfh/feign-reactive"
+	}
+
 }
 
 dependencyManagement {
@@ -32,12 +37,27 @@ dependencyManagement {
 }
 
 dependencies {
-	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+	//Spring cloud
+	implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+
+	//Feign
+	implementation 'com.playtika.reactivefeign:feign-reactor:1.0.22'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign', version: '1.4.6.RELEASE'
+	implementation group: 'com.playtika.reactivefeign', name: 'feign-reactor-core', version: '1.0.22'
+	implementation group: 'com.playtika.reactivefeign', name: 'feign-reactor-webclient', version: '1.0.22'
+
+
+
+	//Spring boot
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	compile group: 'org.springframework', name: 'spring-webflux', version: '5.1.5.RELEASE'
-	compile group: 'io.projectreactor.netty', name: 'reactor-netty', version: '0.8.5.RELEASE'
 
+	//WebClient
+	implementation group: 'org.springframework', name: 'spring-webflux', version: '5.1.5.RELEASE'
+	implementation group: 'io.projectreactor.netty', name: 'reactor-netty', version: '0.8.5.RELEASE'
+
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
