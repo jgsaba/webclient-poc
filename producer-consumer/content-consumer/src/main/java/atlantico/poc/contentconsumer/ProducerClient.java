@@ -2,7 +2,6 @@ package atlantico.poc.contentconsumer;
 
 import feign.Headers;
 import feign.RequestLine;
-import org.springframework.web.bind.annotation.RequestBody;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

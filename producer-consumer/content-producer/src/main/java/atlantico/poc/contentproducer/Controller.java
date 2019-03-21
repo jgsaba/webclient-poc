@@ -1,6 +1,5 @@
 package atlantico.poc.contentproducer;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ public class Controller {
 
         Payload payload = new Payload("Your title is: " + streamPayload.getTitle(),
                 "Your content is: " + streamPayload.getContent(), new Date());
-        System.out.println("VAI MIZERA");
         return payload;
     }
 
