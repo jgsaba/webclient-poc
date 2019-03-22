@@ -6,13 +6,10 @@ import java.util.Date;
 
 public class Payload {
 
-    @JsonProperty("title")
     private String title;
 
-    @JsonProperty("content")
     private String content;
 
-    @JsonProperty("created")
     private Date created;
 
     private String service;

@@ -5,8 +5,6 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -23,8 +21,8 @@ public class Controller {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    public Controller(){
-        webClient = WebClient.builder()
+    public Controller(WebClient.Builder webClientBuilder){
+        webClient = webClientBuilder
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json")
                 .defaultHeader(HttpHeaders.USER_AGENT, "Spring 5 WebClient")
                 .build();
@@ -44,7 +42,7 @@ public class Controller {
 
         Mono<Payload> result = webClient.post()
                 .uri(uri + resource)
-                .contentType(MediaType.APPLICATION_STREAM_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
                 .syncBody(payload)
                 .retrieve()
                 .bodyToMono(Payload.class);
@@ -53,25 +51,28 @@ public class Controller {
     }
 
     @GetMapping("/single")
-    public @ResponseBody Mono<Payload> getASingleOne(){
-
-        String resource = "/single";
+    public Payload getASingleOne(){
 
         URI uri = discoveryClient.getInstances("producer").get(0).getUri();
 
-        Mono<Payload> result =
+        String resource = "/single";
+
+        String completeUri = uri.toString() + resource;
+
+        Payload result =
 
                 webClient.get()
-                .uri(uri + resource)
+                .uri(completeUri)
                 .retrieve()
-                .bodyToMono(Payload.class);
+                .bodyToMono(Payload.class)
+                .block();
 
         return result;
 
     }
 
     @GetMapping("/multiples")
-    public @ResponseBody Flux<Payload> getMultiples(){
+    public Flux<Payload> getMultiples(){
 
         String resource = "/multiples";
 
