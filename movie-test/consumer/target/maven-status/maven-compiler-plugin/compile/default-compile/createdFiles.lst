@@ -1,6 +1,0 @@
-com\example\consumer\ServletInitializer.class
-com\example\consumer\ConsumerApplication.class
-com\example\consumer\Controller\MovieController.class
-com\example\consumer\domain\Movie.class
-com\example\consumer\service\MovieClientService.class
-com\example\consumer\service\MovieClientServiceImpl.class
